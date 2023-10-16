@@ -1,0 +1,15 @@
+a: b c
+	@echo "hello world"
+
+b:
+	@echo "hello bbbb"
+
+c:
+	@echo "hello cccc"
+
+d:
+	ls ./
+	@gcc -lstdc++ main.cpp -o a.o
+
+clean:
+	rm -rf a.out
