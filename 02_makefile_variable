@@ -1,0 +1,29 @@
+# 自定义变量
+# 定义：变量名=变量值
+# 使用：$(变量名)   或  ${变量名}
+
+
+
+OBJ=add.o sub.o multi.o calc.o
+TARGET=calc
+
+
+
+$(TARGET):$(OBJ)
+	g++ $(OBJ) -o $(TARGET)
+
+add.o:add.cpp
+	gcc -c add.cpp -o add.o
+
+sub.o:sub.cpp
+	gcc -c sub.cpp -o sub.o
+
+multi.o:multi.cpp
+	gcc -c multi.cpp -o multi.o
+
+calc.o:calc.cpp
+	g++ -c calc.cpp -o calc.o
+
+
+clean:
+	rm -rf *.o calc
