@@ -1,0 +1,26 @@
+OBJ=add.o sub.o multi.o calc.o
+TARGET=calc
+
+
+# $^ 所有不重复的依赖文件，以空格分割
+# $@ 目标文件的完整名称
+
+
+$(TARGET):$(OBJ)
+	g++ $^ -o $@
+
+add.o:add.cpp
+	gcc -c $^ -o $@
+
+sub.o:sub.cpp
+	gcc -c $^ -o $@
+
+multi.o:multi.cpp
+	gcc -c $^ -o $@
+
+calc.o:calc.cpp
+	g++ -c $^ -o $@
+
+
+clean:
+	rm -rf *.o ${TARGET}
