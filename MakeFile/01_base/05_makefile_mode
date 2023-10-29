@@ -1,0 +1,39 @@
+
+# 伪目标 .PHONY:clean
+# 声明伪目标后，makefile将不会判断目标是否存在或该目标是否需要更新
+
+
+# 模式匹配
+# %目标：%依赖		目标和依赖相同部分，用%来通配：如%.o:%.cpp
+
+
+
+# $(wildcard ,./*.cpp) 							获取当前目录下的所有.cpp文件
+# $(patsubst %.cpp,%.o,$(wildcard ./*.cpp))		将当前目录下的所有.cpp替换为.o文件
+
+.PHONY:show clean
+
+
+#OBJ=add.o sub.o multi.o calc.o
+OBJ = $(patsubst %.cpp,%.o,$(wildcard ./*.cpp))
+TARGET=calc
+
+
+
+$(TARGET):$(OBJ)
+	$(CXX) $^ -o $@
+
+%.o:%.cpp
+	$(CXX) -c $^ -o $@
+
+
+clean:
+	$(RM) *.o ${TARGET}
+
+show:
+	echo $(AS)
+	echo $(CC)
+	echo $(CPP)
+	echo $(CXX)
+	echo $(RM)
+	echo $(OBJ)
