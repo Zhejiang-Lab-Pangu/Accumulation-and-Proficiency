@@ -1,0 +1,3 @@
+TARGET=c
+include ../Makefile
+
