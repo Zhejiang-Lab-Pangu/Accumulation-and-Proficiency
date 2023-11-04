@@ -1,0 +1,3 @@
+TARGET=z
+include ../Makefile
+
