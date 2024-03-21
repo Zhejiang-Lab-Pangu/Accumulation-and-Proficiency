@@ -1,0 +1,12 @@
+stat -c %s SimpleSection.o      文件字节数
+size SimpleSection.o            elf各段的大小
+
+objdump -h SimpleSection.o          -h 打印elf文件各段的基本信息
+objdump -s -d SimpleSection.o       -d 包含指定的段的反汇编  -s 16进制
+objdump -x -s -d SimpleSection.o    -x 更多信息打印
+
+readelf -h SimpleSection.o      查看elf头文件           对应 /usr/include/elf.h 中的 Elf64_Ehdr （头） 结构体
+readelf -S SimpleSection.o      查看elf的所有段         对应 /usr/include/elf.h 中的 Elf64_Shdr （段） 结构体
+
+nm SimpleSection.o                  查看elf的符号结果           符号表对应 /usr/include/elf.h 中的 Elf64_Sym 结构体
+readelf -s SimpleSection.o          查看elf的符号表（信息更全）
