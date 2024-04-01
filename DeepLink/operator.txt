@@ -10,3 +10,4 @@ readelf -S SimpleSection.o      查看elf的所有段         对应 /usr/includ
 
 nm SimpleSection.o                  查看elf的符号结果           符号表对应 /usr/include/elf.h 中的 Elf64_Sym 结构体
 readelf -s SimpleSection.o          查看elf的符号表（信息更全）
+
