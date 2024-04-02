@@ -1,0 +1,29 @@
+istat -c %s SimpleSection.o      文件字节数
+size SimpleSection.o            elf各段的大小
+
+objdump -h SimpleSection.o          -h 打印elf文件各段的基本信息
+objdump -s -d SimpleSection.o       -d 包含指定的段的反汇编  -s 16进制
+objdump -x -s -d SimpleSection.o    -x 更多信息打印
+
+readelf -h SimpleSection.o      查看elf头文件           对应 /usr/include/elf.h 中的 Elf64_Ehdr （头） 结构体
+readelf -S SimpleSection.o      查看elf的所有段         对应 /usr/include/elf.h 中的 Elf64_Shdr （段） 结构体
+
+nm SimpleSection.o                  查看elf的符号结果           符号表对应 /usr/include/elf.h 中的 Elf64_Sym 结构体
+readelf -s SimpleSection.o          查看elf的符号表（信息更全）
+
+
+
+
+c++filt _ZN1C4funcEi  ->> C::func(int)                  GCC符号转代码工具c++filt
+-lpthread                                               该编译选项告诉编译器在链接时链接到多线程的Glibs库
+-g                             该编译选项的作用：在目标文件中生成调试信息
+==========================================
+
+1. 链接中的接口 —— 符号
+1.1 在链接中，函数和变量统称为符号(symbol)，函数名和变量名就是符号名；
+1.2 符号修饰：函数名/变量名 ->> 符号名；
+1.3 函数签名：包含一个函数的信息，包括函数名、参数类型、所属类、所属命名空间等；
+1.4 编译器和链接器在处理符号时，会使用名称修饰，将每个函数签名对应一个修饰后名称；
+1.5 强符号和弱符号：
+    （1）编译器默认函数和初始化后的全局变量称为强符号；
+    （2）未初始化的全局变量为弱符号；也可通过GCC的  “__attribute__((weak))” 来将强符号定义为弱符号;
