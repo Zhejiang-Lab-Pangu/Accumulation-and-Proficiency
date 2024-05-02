@@ -11,3 +11,26 @@ readelf -S SimpleSection.o      查看elf的所有段         对应 /usr/includ
 nm SimpleSection.o                  查看elf的符号结果           符号表对应 /usr/include/elf.h 中的 Elf64_Sym 结构体
 readelf -s SimpleSection.o          查看elf的符号表（信息更全）
 
+
+
+
+c++filt _ZN1C4funcEi  ->> C::func(int)                  GCC符号转代码工具c++filt
+-lpthread                                               该编译选项告诉编译器在链接时链接到多线程的Glibs库
+-g                             该编译选项的作用：在目标文件中生成调试信息
+
+
+
+
+
+===========================================
+gcc 命令：
+-c                  只编译不链接
+-verbose            打印整个编译过程的中间步骤
+-fno-builtin        关闭内置函数优化选项， 如GCC会默认将只使用体格字符串参数的 "printf" 替换成 "puts"；GCC编译器提供了很多内置函数，会把一些常用的C库函数替换成编译器内置函数以优化。
+
+
+
+===========================================
+ld 命令：
+-static             ld使用静态链接的方式来链接程序 (默认动态链接的方式)
+
