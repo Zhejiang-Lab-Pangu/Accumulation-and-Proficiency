@@ -4,6 +4,7 @@
 (3) 动态链接库文件(Windows的.dll和Linux的.so)和静态链接库文件(Windows的.lib和Linux的.a)都按照可执行文件(Windows的.exe和Linux的ELF可执行文件)格式存储；
 
 2.目标文件
+2.1
 
 3.elf文件结构描述
 -------------------------
