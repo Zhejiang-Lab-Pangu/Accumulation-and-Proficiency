@@ -13,7 +13,6 @@ readelf -s SimpleSection.o          查看elf的符号表（信息更全）
 
 
 
-
 c++filt _ZN1C4funcEi  ->> C::func(int)                  GCC符号转代码工具c++filt
 -lpthread                                               该编译选项告诉编译器在链接时链接到多线程的Glibs库
 -g                             该编译选项的作用：在目标文件中生成调试信息
